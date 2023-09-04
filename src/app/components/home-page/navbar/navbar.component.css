@@ -1,0 +1,8 @@
+.navbar-nav .nav-item.active a.nav-link {
+  font-weight: bold;
+  color: #5d4bff;
+}
+
+.nav-link {
+  font-size: 18px;
+}

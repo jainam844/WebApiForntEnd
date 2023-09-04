@@ -1,10 +1,7 @@
 <app-navbar></app-navbar>
-<div class="user-list-container">
-
+<div class="user-list-container mt-5">
   <p class="total-users">
     Total Users <i class="bi bi-people" style="font-size: 24px;"></i> : {{ users.length }}
   </p>
-
-
   <p *ngIf="!users || users.length === 0" class="no-data-message">No data available.</p>
 </div>

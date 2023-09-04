@@ -72,4 +72,11 @@ export class UserService {
       headers,
     });
   }
+
+
+isAuthenticated(): boolean {
+  const token = this.getToken();
+  return !!token; 
+}
+
 }

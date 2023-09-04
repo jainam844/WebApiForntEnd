@@ -33,4 +33,39 @@
     color: #999;
     margin-top: 10px;
   }
+  .b1 {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: #3F51B5;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 8px 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+  }
   
+  .b1:hover {
+    background-color: #f0464f;
+  } 
+   .b2 {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: #f03f3f;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 8px 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+  }
+  
+  .b2:hover {
+    background-color: #3F51B5;
+  }

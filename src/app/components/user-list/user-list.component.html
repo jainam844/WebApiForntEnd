@@ -23,9 +23,9 @@
           <td>{{ employee.gender }}</td>
           <td>{{ employee.department }}</td>
           <td>{{ employee.date_Of_Birth | date:'dd/MM/yyyy' }}</td>
-          <td><button class="btn btn-primary" [routerLink]="['/edit', employee.userId]" >Edit</button></td>
+          <td><button class="b1" [routerLink]="['/edit', employee.userId]" >Edit</button></td>
 
-          <td><button class="btn btn-danger"
+          <td><button class="b2"
               (click)="openDeleteConfirmationModal(employee.userId,deleteConfirmationModal)">Delete</button></td>
         </tr>
       </tbody>

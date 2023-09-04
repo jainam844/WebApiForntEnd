@@ -14,6 +14,7 @@ export class UserDetailsComponent {
   userForm!: FormGroup;
   userId: number = 0;
   editMode: boolean = false;
+
   newUser: User = {
     userId: 0,
     firstName: '',
@@ -21,9 +22,10 @@ export class UserDetailsComponent {
     department: '',
     gender: '',
     date_Of_Birth: '',
-    email:'',
-    password:''
+    email: '',
+    password: '',
   };
+
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
@@ -37,17 +39,15 @@ export class UserDetailsComponent {
       gender: ['', Validators.required],
       department: ['', Validators.required],
       date_Of_Birth: ['', Validators.required],
-      email:['', Validators.required],
-      password:['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.userId = +params['id'];
-
       this.editMode = !!this.userId;
-
       if (this.editMode) {
         this.loadUserDataforEdit(this.userId);
       }
@@ -130,9 +130,9 @@ export class UserDetailsComponent {
         );
       } else if (this.userForm.get('dateOfBirth')?.invalid) {
         this.toastService.showError('Please select a Date of Birth.', 'Error');
-      }else if (this.userForm.get('email')?.invalid) {
+      } else if (this.userForm.get('email')?.invalid) {
         this.toastService.showError('Please enter  email.', 'Error');
-      }else if (this.userForm.get('dateOfBirth')?.invalid) {
+      } else if (this.userForm.get('dateOfBirth')?.invalid) {
         this.toastService.showError('Please enter Password .', 'Error');
       }
     }

@@ -18,6 +18,7 @@ import { UserListModule } from './components/user-list/user-list.module';
 import { HomePageModule } from './components/home-page/home-page.module';
 import { LoginModule } from './components/login-page/login.module';
 import { UserDetailsModule } from './components/user-list/components/user-details/user-details.module';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { UserDetailsModule } from './components/user-list/components/user-detail
     LoginModule,
     UserDetailsModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
