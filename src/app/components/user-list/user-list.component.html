@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<h2>User List <i class="bi bi-people-fill"></i></h2>
+<div class="container my-5">
+  <div class="table-responsive">
+    <table class="table" *ngIf="employees && employees.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Gender</th>
+          <th>Department</th>
+          <th>Date Of Birth</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.userId }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>{{ employee.gender }}</td>
+          <td>{{ employee.department }}</td>
+          <td>{{ employee.date_Of_Birth | date:'dd/MM/yyyy' }}</td>
+          <td><button class="btn btn-primary" [routerLink]="['/edit', employee.userId]" >Edit</button></td>
+
+          <td><button class="btn btn-danger"
+              (click)="openDeleteConfirmationModal(employee.userId,deleteConfirmationModal)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p *ngIf="!employees || employees.length <= 0">no data</p>
+</div>
+<ng-template #deleteConfirmationModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirm Deletion</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+
+
+  <div class="modal-body">
+    Are you sure you want to delete this User?
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
+    <button class="btn btn-danger" (click)="modal.close('confirm')">Delete</button>
+  </div>
+</ng-template>

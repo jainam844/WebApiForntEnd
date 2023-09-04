@@ -1,0 +1,86 @@
+<app-navbar></app-navbar>
+
+<div class="form-container mt-lg-5 mt-md-5 mt-5 mt-sm-5">
+    
+    <h2>{{ editMode ? 'Edit User' : 'Add User' }}
+        <i class="bi {{ editMode ? 'bi-pencil-square' : 'bi-person-add' }}"></i>
+    </h2>
+
+
+    <form [formGroup]="userForm" (ngSubmit)="submitForm()" class="center-form">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name:</label>
+            <input type="text" id="firstName" name="firstName" formControlName="firstName" class="form-control">
+            <div *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">
+                <small class="text-danger">First Name is required.</small>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" formControlName="lastName" class="form-control">
+            <div *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched">
+                <small class="text-danger">Last Name is required.</small>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Gender:</label>
+            <div class="form-check">
+                <input type="radio" id="male" name="gender" formControlName="gender" class="form-check-input"
+                    value="Male">
+                <label for="male" class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" id="female" name="gender" formControlName="gender" class="form-check-input"
+                    value="Female">
+                <label for="female" class="form-check-label">Female</label>
+            </div>
+            <div *ngIf="userForm.get('gender')?.invalid && userForm.get('gender')?.touched">
+                <small class="text-danger">Gender is required.</small>
+            </div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="department" class="form-label">Department:</label>
+            <input type="text" id="department" name="department" formControlName="department" class="form-control">
+            <div *ngIf="userForm.get('department')?.invalid && userForm.get('department')?.touched">
+                <small class="text-danger">Department is required.</small>
+            </div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="date_Of_Birth" class="form-label">Date Of Birth:</label>
+            <input type="date" id="date_Of_Birth" name="date_Of_Birth" formControlName="date_Of_Birth"
+                class="form-control">
+            <div *ngIf="userForm.get('date_Of_Birth')?.invalid && userForm.get('date_Of_Birth')?.touched">
+                <small class="text-danger"> Date of Birth is required.</small>
+            </div>
+        </div>     
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" name="email" formControlName="email"
+                class="form-control">
+            <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+                <small class="text-danger"> email is required.</small>
+            </div>
+        </div>    
+           <div class="mb-3">
+            <label for="password" class="form-label">password:</label>
+            <input type="text" id="password" name="password" formControlName="password"
+                class="form-control">
+            <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+                <small class="text-danger"> password  is required.</small>
+            </div>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary">{{ editMode ? 'Save Changes' : 'Add User' }}</button>
+
+
+    </form>
+
+</div>
