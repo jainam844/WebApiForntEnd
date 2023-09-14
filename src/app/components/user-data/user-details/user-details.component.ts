@@ -79,10 +79,10 @@ export class UserDetailsComponent {
         const updatedUser: User = this.userForm.value;
         updatedUser.userId = this.userId;
 
-        this.userService.UpdateUser(updatedUser).subscribe(
+        this.userService.updateUser(updatedUser).subscribe(
           () => {
             console.log(`User with ID ${this.userId} updated successfully.`);
-            this.router.navigate(['UserList']);
+            this.router.navigate(['users']);
             this.toastService.showSuccess(
               'User updated successfully!',
               'Success'
@@ -97,9 +97,9 @@ export class UserDetailsComponent {
       } else {
         const newUser: User = this.userForm.value;
 
-        this.userService.AddUser(newUser).subscribe(
+        this.userService.addUser(newUser).subscribe(
           () => {
-            this.router.navigate(['UserList']);
+            this.router.navigate(['users']);
             this.toastService.showSuccess(
               'User added successfully!',
               'Success'

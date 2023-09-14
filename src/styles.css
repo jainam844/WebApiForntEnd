@@ -3,3 +3,5 @@ body{
     background-color: rgb(243, 243, 245);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

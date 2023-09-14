@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { ToastService } from 'src/app/services/toast.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent {
     private router: Router,
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private authService: AuthService
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -32,6 +34,7 @@ export class LoginComponent {
           const token = response;
           localStorage.setItem('token', token);
           console.log('Token:', token);
+          this.authService.setAuthenticated(true); 
           this.router.navigate(['Home']);
           this.toastService.showSuccess('Login successful..!', 'Success');
         },

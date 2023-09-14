@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { UserDetailsComponent } from './components/user-list/components/user-details/user-details.component';
 import { AuthGuard } from './auth.guard';
+import { LoginComponent } from './components/login-page/login.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+// import { HomePagesComponent } from './components/home-pages/home-pages.component';
 
 const routes: Routes = [
   {
@@ -13,48 +15,29 @@ const routes: Routes = [
 
   {
     path: 'Login',
-    loadChildren: () =>
-      import('./components/login-page/login.module').then((m) => m.LoginModule),
-  },
-
-  {
-    path: 'edit/:id',
-    loadChildren: () =>
-      import(
-        './components/user-list/components/user-details/user-details.module'
-      ).then((m) => m.UserDetailsModule),
-    canActivate: [AuthGuard],
+    component: LoginComponent,
   },
 
   {
     path: 'Home',
-    loadChildren: () =>
-      import('./components/home-page/home-page.module').then(
-        (m) => m.HomePageModule
-      ),
+    component: HomePageComponent,
     canActivate: [AuthGuard],
   },
 
   {
-    path: 'UserList',
+    path: 'users',
     loadChildren: () =>
-      import('./components/user-list/user-list.module').then(
-        (m) => m.UserListModule
+      import('./components/user-data/user-data.module').then(
+        (m) => m.UserDataModule
       ),
     canActivate: [AuthGuard],
   },
-  {
-    path: 'AddUser',
-    loadChildren: () =>
-      import(
-        './components/user-list/components/user-details/user-details.module'
-      ).then((m) => m.UserDetailsModule),
-    canActivate: [AuthGuard],
-  },
+  { path: 'user-resource-menu', loadChildren: () => import('./components/user-resource-menu/user-resource-menu.module').then(m => m.UserResourceMenuModule) },
 
   {
     path: '**',
     component: PageNotFoundComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

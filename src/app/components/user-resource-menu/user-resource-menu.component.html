@@ -1,0 +1,98 @@
+<!-- <app-navbar></app-navbar> -->
+<h2 class="mt-4 d-flex justify-content-center">User Resources</h2>
+
+
+<div class="container my-5">
+    <div class="container">
+        <div class="table-add-button-container">
+            <button class="b1" (click)="openAddResourceModal(deleteConfirmationModal)">Add Resource</button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table" *ngIf="users && users.length > 0">
+            <thead>
+                <tr>
+                    <th>UserName</th>
+                    <th>Resorces Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.firstName }}</td>
+                    <td>{{user.resource}}</td>
+                    <td><button class="b2" (click)="openViewResourceModal(user)">View</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p *ngIf="!users || users.length <= 0">no data</p>
+</div>
+
+<ng-template #deleteConfirmationModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Add Resources</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="form-group">
+        <label for="selectedUser">Select a User:</label>
+        <select class="form-control mt-2" id="selectedUser" [(ngModel)]="selectedUserId">
+            <option value="0">Select a User</option>
+            <option *ngFor="let user of allUsers" [ngValue]="user.userId">{{ user.firstName }}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="resourceSelect" class="form-control" id="resourceSelect" [(ngModel)]="selectedResourceId">
+            <option value="0">Select a resource</option>
+            <option *ngFor="let optionResource of resorceOptions" [value]="optionResource.resourceId">{{
+                optionResource.resource }}</option>
+        </select>
+    </div>
+
+
+    <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
+        <button class="btn btn-primary" (click)="modal.close('confirm')">Add</button>
+    </div>
+</ng-template>
+
+
+
+<ng-template #viewResourceModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">View Resource</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" id="firstName" [(ngModel)]="selectedUserName" disabled>
+    </div>
+
+    <div *ngFor="let resource of selectedUserResources" class="form-group">
+        <label for="resourceSelect{{ resource.resourceId }}">Edit resource? {{ resource.resource }}</label>
+
+        <select name="resourceSelect" class="form-control" id="resourceSelect{{ resource.resourceId }}"
+            [(ngModel)]="selectedResourceIds[resource.resourceId]">
+
+            <option *ngFor="let optionResource of resorceOptions" [value]="optionResource.resourceId">
+                {{ optionResource.resource }}
+            </option>
+            
+        </select>
+        <div class="d-flex justify-content-between">
+            <button class="mt-1 b3" (click)="saveResource(resource)">Save</button>
+            <button class="mt-1 b2" (click)="deleteResource(resource)">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="modal.dismiss('cancel')">Close</button>
+
+    </div>
+
+</ng-template>

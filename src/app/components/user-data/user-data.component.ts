@@ -6,12 +6,11 @@ import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css'],
+  templateUrl: './user-data.component.html',
+  styleUrls: ['./user-data.component.css'],
 })
-export class UserListComponent {
+export class UserDataComponent {
   employees: User[] = [];
-
   userAdded = false;
   addError = false;
 
@@ -22,17 +21,20 @@ export class UserListComponent {
   ) {}
 
   ngOnInit(): void {
+    this.getAllUserList();
+  }
+
+  getAllUserList() {
     this.employeesservice.getAllUser().subscribe({
       next: (employees) => {
         this.employees = employees;
+        
       },
       error: (respose) => {
         console.log(respose);
       },
     });
   }
-
-
 
   openDeleteConfirmationModal(userId: number, content: any) {
     const modalRef = this.modalService.open(content);
@@ -45,8 +47,7 @@ export class UserListComponent {
       (reason) => {}
     );
   }
- 
-  
+
   deleteUser(userId: number): void {
     this.employeesservice.deleteUser(userId).subscribe(
       () => {

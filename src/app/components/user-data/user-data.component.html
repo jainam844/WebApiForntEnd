@@ -1,6 +1,15 @@
-<app-navbar></app-navbar>
-<h2>User List <i class="bi bi-people-fill"></i></h2>
+<!-- <app-navbar></app-navbar> -->
+<h2 class="mt-4 d-flex justify-content-center">User Data <i class="bi bi-people-fill"></i></h2>
+
+
+
 <div class="container my-5">
+  <div class="container">
+    <div class="table-add-button-container">
+      <button class="addButton" routerLink="/users/add">Add User <i class="bi bi-person-plus"></i></button>
+    </div>
+  </div>
+
   <div class="table-responsive">
     <table class="table" *ngIf="employees && employees.length > 0">
       <thead>
@@ -23,7 +32,7 @@
           <td>{{ employee.gender }}</td>
           <td>{{ employee.department }}</td>
           <td>{{ employee.date_Of_Birth | date:'dd/MM/yyyy' }}</td>
-          <td><button class="b1" [routerLink]="['/edit', employee.userId]" >Edit</button></td>
+          <td><button class="b1" [routerLink]="['/users/edit', employee.userId]">Edit</button></td>
 
           <td><button class="b2"
               (click)="openDeleteConfirmationModal(employee.userId,deleteConfirmationModal)">Delete</button></td>
@@ -33,6 +42,7 @@
   </div>
   <p *ngIf="!employees || employees.length <= 0">no data</p>
 </div>
+
 <ng-template #deleteConfirmationModal let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Confirm Deletion</h4>
