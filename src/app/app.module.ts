@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login-page/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AuthInterceptor } from './auth.interceptor';
     LoginComponent,
     NavbarComponent,
     HomePageComponent,
+    LoadingSpinnerComponent,
   ],
 
   imports: [
