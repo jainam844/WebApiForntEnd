@@ -1,76 +1,76 @@
 /* Apply basic styling to the table */
 
 .table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 1px solid #ccc;
-  }
-  
-  /* Style the table headers */
-  .table th {
-    background-color: #f8f9fa;
-    padding: 10px;
-    text-align: left;
-    font-weight: bold;
-    border-bottom: 2px solid #ccc;
-  }
-  
-  /* Style alternating rows */
-  .table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  /* Style table cells */
-  .table td {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  /* Style the "no data" message */
-  p.no-data-message {
-    font-style: italic;
-    color: #999;
-    margin-top: 10px;
-  }
-  .b1 {
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
-    background-color: #3F51B5;
-    color: white;
-    border-radius: 8px;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    padding: 8px 16px;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: none;
-  }
-  
-  .b1:hover {
-    background-color: #f0464f;
-  } 
-   .b2 {
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
-    background-color: #f03f3f;
-    color: white;
-    border-radius: 8px;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    padding: 8px 16px;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: none;
-  }
-  
-  .b2:hover {
-    background-color: #3F51B5;
-  }
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ccc;
+}
 
-  /* Add User button container */
+/* Style the table headers */
+.table th {
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Style alternating rows */
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Style table cells */
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style the "no data" message */
+p.no-data-message {
+  font-style: italic;
+  color: #999;
+  margin-top: 10px;
+}
+.b1 {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 8px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+}
+
+.b1:hover {
+  background-color: #f0464f;
+}
+.b2 {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #f03f3f;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 8px 16px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+}
+
+.b2:hover {
+  background-color: #3f51b5;
+}
+
+/* Add User button container */
 .table-add-button-container {
   display: flex;
   justify-content: flex-end;
@@ -81,7 +81,7 @@
 .btn-primary {
   margin-left: 10px; /* Add margin to separate the button from the table */
 }
-.addButton{
+.addButton {
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   background-color: #2420ec;
@@ -95,6 +95,9 @@
   letter-spacing: 2px;
   border: none;
 }
-.addButton:hover{
+.addButton:hover {
   background-color: #797c8f;
+}
+.small-input {
+  width: 350px; /* You can adjust the width to your preference */
 }

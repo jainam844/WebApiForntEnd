@@ -1,10 +1,8 @@
-
-
-
 <div class="form-container">
     <h2>{{ editMode ? 'Edit User' : 'Add User' }}
         <i class="bi {{ editMode ? 'bi-pencil-square' : 'bi-person-add' }}"></i>
     </h2>
+
     <form [formGroup]="userForm" (ngSubmit)="submitForm()" class="center-form">
         <div class="mb-3">
             <label for="firstName" class="form-label">First Name:</label>
